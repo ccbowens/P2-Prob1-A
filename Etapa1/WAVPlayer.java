@@ -1,4 +1,4 @@
-package trabalhounidade02;
+package trabalhounidade2;
 
 /**
  *
@@ -16,7 +16,7 @@ public class WAVPlayer {
         this.arquivoNome = arquivo;
     }
 
-    public void play() {
+    public void reproduzir() {
         if (this.arquivoEstado == Estado.VAZIO) {
             System.out.println(this.getClass().getName() + " - Arquivo " + this.arquivoNome + " executando a partir da posição " + this.arquivoPosicao);
             this.arquivoEstado = Estado.REPRODUZINDO;
@@ -24,7 +24,7 @@ public class WAVPlayer {
         }
     }
 
-    public void stop() {
+    public void parar() {
         if (this.arquivoEstado == Estado.REPRODUZINDO) {
             System.out.println(this.getClass().getName() + " O arquivo foi pausado.");
             this.arquivoEstado = Estado.PAUSADO;
@@ -33,14 +33,14 @@ public class WAVPlayer {
     }
    
     
-    public int forward(int valor) {
+    public int avancar(int valor) {
         if (valor > 0) {
             this.arquivoPosicao += valor;
         }
         return this.arquivoPosicao;
     }
 
-    public int reward(int valor) {
+    public int retomar(int valor) {
         if (valor > 0) {
             this.arquivoPosicao -= valor;
             if (this.arquivoPosicao < 0) {
