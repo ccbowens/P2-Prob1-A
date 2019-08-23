@@ -1,12 +1,8 @@
-o padrao de projeto adapter esta sendo usado na criacao da interface FormatoAudio, no qual utilizamos suas assinaturas nas classes AACPlayerAdapter, AIFFAdapter, MP3DJAdapter, WAVAdapter e wmaAdapter onde os métodos delas chamam metodos diferentes das classes passadas pela empresa, adaptando as funcionalidades para seguirem exatamente o desejo da original de acordo com a interface FormatoAudio.
+o padrao de projeto adapter esta sendo usado na criacao da interface FormatoAudio, no qual utilizamos suas assinaturas nas classes AACPlayerAdapter, AIFFAdapter, MP3DJAdapter, WAVAdapter e wmaAdapter onde os mÃ©todos delas chamam metodos diferentes das classes passadas pela empresa, adaptando as funcionalidades para seguirem exatamente o desejo da original de acordo com a interface FormatoAudio.
 
-o padrao de projeto facade tem seu uso nas classes AACPlayerAdapter, AIFFAdapter, MP3DJAdapter, WAVAdapter e wmaAdapter no qual os métodos deles foram adaptados para fazer uso dos métodos disponíveis nas classes passadas pela empresa.
+o padrao de projeto facade tem seu uso nas classes AACPlayerAdapter, AIFFAdapter, MP3DJAdapter, WAVAdapter e wmaAdapter no qual os mÃ©todos deles foram adaptados para fazer uso dos mÃ©todos disponÃ­veis nas classes passadas pela empresa.
 Ex: Abrir do AIFFAdapter chama o construtor da AIFF passada pela empresa, mas nem todos os abrir tem o mesmo comportamento.
 
 o padrao de projeto factory tem o uso na classe AudioFactory, no qual tem sua responsabilidade de retornar o objeto desejado de acordo com a string passada para o metodo getFormato.
-
-
--------------
-- faltou uma classe principal para demonstrar o funcionamento de tudo: "Para apresentar a solução para a empresa, a equipe deve criar um programa que utilize as classes wmaPlay, AIFFSuperPlayer e WAVPlayer através da interface FormatoAudio, fazendo a manipulação de arquivos de áudio de forma completa. Também deve demonstrar o uso de forma simplificada."
 
 
