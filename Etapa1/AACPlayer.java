@@ -5,29 +5,23 @@
  */
 package trabalhounidade2;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
 /**
  *
- * @author patricka
+ * @author rmtiedt
  */
-public class wmaPlay {
+public class AACPlayer {
     
     private String arquivoSetado;
     private Estado arquivoEstado;
     private int arquivoPosicao;
-    
-        public wmaPlay() {
+
+   public AACPlayer(String nomeArquivo) {
         this.arquivoEstado = Estado.VAZIO;
-        this.arquivoPosicao = -1;
-    }
-    public void setFile(String s){
-    this.arquivoSetado = s;
-    this.arquivoEstado = Estado.SETADO;
+        this.arquivoPosicao = 0;
+        this.arquivoSetado = nomeArquivo;
     }
     
-    public void setLocation(int i){
+        public void setLocation(int i){
    if (i > 0){
        this.arquivoPosicao = i;
        this.arquivoEstado = Estado.PARADO;
@@ -39,8 +33,7 @@ public class wmaPlay {
     public int getLocation(){
     return this.arquivoPosicao;    
     }
-    
-    public void reproduzir(){
+     public void reproduzir(){
         if (this.arquivoEstado == Estado.PAUSADO || this.arquivoEstado == Estado.SETADO || this.arquivoEstado == Estado.PARADO ){
         this.arquivoEstado = Estado.REPRODUZINDO;
         System.out.println("O arquivo " + this.arquivoSetado.toString() + " foi executado a partir dos " + this.arquivoPosicao + " milisegundos.");
@@ -65,4 +58,5 @@ public class wmaPlay {
             this.arquivoEstado = Estado.ABERTO;
         }
     }
+    
 }

@@ -7,17 +7,12 @@ package trabalhounidade2;
 
 /**
  *
- * @author patricka
+ * @author rmtiedt
  */
-    enum Estado {
-    ABERTO,
-    PAUSADO,
-    VAZIO,
-    REPRODUZINDO,
-    PARADO,
-    SETADO;
-    
-    private Estado() {
-    }
-
+public enum TipoDeFormatoAudio {
+    WMAPlayer,
+    WAVPlayer,
+    AIFFSuperPlayer,
+    MP3DJ,
+    AACPlayer;
 }

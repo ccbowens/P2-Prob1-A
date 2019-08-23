@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package back;
+package trabalhounidade2;
 
-import problema1.wmaPlay;
+import trabalhounidade2.FormatoAudio;
+import trabalhounidade2.wmaPlay;
 
 
 /**
@@ -18,32 +19,29 @@ public class WmaPlayAdapter implements FormatoAudio {
     
     @Override
     public void abrir(String nomeArquivo) {
+        wma = new wmaPlay();
         wma.setFile(nomeArquivo);
-        if (wma != null) {
-            wma.setLocation(0);
-            wma.open();
-        }
+        wma.abrir();
     }
 
     @Override
     public void reproduzir() {
         if (wma != null) {
-              
-            wma.play();
+            wma.reproduzir();
         }
     }
 
     @Override
     public void pausar() {
        if (wma != null) {
-            wma.stop();
+            wma.parar();
         } 
     }
 
     @Override
     public void parar() {
         if (wma != null) {
-            wma.stop();
+            wma.parar();
             wma.setLocation(0);
         }
     }
@@ -68,6 +66,17 @@ public class WmaPlayAdapter implements FormatoAudio {
        if(wma != null){
            wma.setFile(null);
        }
+    }
+
+    @Override
+    public void reproduzirSimples(String nome) {
+        this.abrir(nome);
+        this.reproduzir();
+    }
+
+    @Override
+    public void pausarSimples() {
+        this.parar();
     }
 
 }

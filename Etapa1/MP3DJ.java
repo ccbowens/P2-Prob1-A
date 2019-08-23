@@ -5,42 +5,22 @@
  */
 package trabalhounidade2;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
 /**
  *
- * @author patricka
+ * @author rmtiedt
  */
-public class wmaPlay {
+public class MP3DJ {
     
     private String arquivoSetado;
     private Estado arquivoEstado;
     private int arquivoPosicao;
     
-        public wmaPlay() {
-        this.arquivoEstado = Estado.VAZIO;
-        this.arquivoPosicao = -1;
-    }
     public void setFile(String s){
     this.arquivoSetado = s;
     this.arquivoEstado = Estado.SETADO;
     }
     
-    public void setLocation(int i){
-   if (i > 0){
-       this.arquivoPosicao = i;
-       this.arquivoEstado = Estado.PARADO;
-       } else
-       this.arquivoEstado = Estado.PARADO;
-       this.arquivoPosicao = 0;
-    }
-    
-    public int getLocation(){
-    return this.arquivoPosicao;    
-    }
-    
-    public void reproduzir(){
+     public void reproduzir(){
         if (this.arquivoEstado == Estado.PAUSADO || this.arquivoEstado == Estado.SETADO || this.arquivoEstado == Estado.PARADO ){
         this.arquivoEstado = Estado.REPRODUZINDO;
         System.out.println("O arquivo " + this.arquivoSetado.toString() + " foi executado a partir dos " + this.arquivoPosicao + " milisegundos.");
@@ -55,14 +35,24 @@ public class wmaPlay {
         }else{
             
             this.arquivoEstado = Estado.PAUSADO;
-            this.setLocation(0);
             System.out.println("O tempo de reprodução voltou ao início.");
         }
     }
-    
-     public void abrir() {
-        if (this.arquivoEstado == Estado.SETADO) {
-            this.arquivoEstado = Estado.ABERTO;
+        public int avancar(int valor) {
+        if (valor > 0) {
+            this.arquivoPosicao += valor;
         }
+        return this.arquivoPosicao;
     }
+
+    public int retomar(int valor) {
+        if (valor > 0) {
+            this.arquivoPosicao -= valor;
+            if (this.arquivoPosicao < 0) {
+                this.arquivoPosicao = 0;
+            }
+        }
+        return this.arquivoPosicao;
+    }
+    
 }

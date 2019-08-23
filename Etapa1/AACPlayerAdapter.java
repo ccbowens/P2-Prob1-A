@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package back;
-
-import problema1.AACPlayer;
-
+package trabalhounidade2;
+import trabalhounidade2.AACPlayer;
 /**
  *
- * @author Rubens
+ * @author rmtiedt
  */
 public class AACPlayerAdapter implements FormatoAudio {
     AACPlayer aacplayer;
@@ -18,23 +16,23 @@ public class AACPlayerAdapter implements FormatoAudio {
     public void abrir(String nomeArquivo) {
         this.aacplayer = new AACPlayer(nomeArquivo);
         this.aacplayer.setLocation(0);
-        this.aacplayer.open();
+        this.aacplayer.abrir();
     }
 
     @Override
     public void reproduzir() {
-        this.aacplayer.play();
+        this.aacplayer.reproduzir();
     }
 
     @Override
     public void pausar() {
-        this.aacplayer.stop();
+        this.aacplayer.parar();
     }
 
     @Override
     public void parar() {
         this.aacplayer.setLocation(0);
-        this.aacplayer.stop();
+        this.aacplayer.parar();
     }
 
     @Override
@@ -50,6 +48,17 @@ public class AACPlayerAdapter implements FormatoAudio {
     @Override
     public void liberar() {
         this.aacplayer = null;
+    }
+
+    @Override
+    public void reproduzirSimples(String nome) {
+        this.abrir(nome);
+        this.reproduzir();
+    }
+
+    @Override
+    public void pausarSimples() {
+        this.parar();
     }
     
     

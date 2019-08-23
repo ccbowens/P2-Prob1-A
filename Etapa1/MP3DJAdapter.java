@@ -1,55 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package back;
+package trabalhounidade2;
 
-import problema1.MP3DJ;
-/**
- *
- * @author Rubens
- */
-public class MP3DJAdapter implements FormatoAudio{
-    MP3DJ mp3dj;
-    private String nomeArquivo;
+import trabalhounidade2.FormatoAudio;
+import trabalhounidade2.MP3DJ;
 
+public class MP3DJAdapter implements FormatoAudio {
+
+    private MP3DJ mp3 = new MP3DJ();
+    
     @Override
-    public void abrir(String nomeArquivo) {
-        this.mp3dj.setFile(nomeArquivo);
-        this.nomeArquivo = nomeArquivo;
+    public void abrir(String nome) {
+        mp3.setFile(nome);
     }
 
     @Override
     public void reproduzir() {
-        this.mp3dj.play();
+        mp3.reproduzir();
     }
 
     @Override
     public void pausar() {
-        this.mp3dj.stop();
+        mp3.parar();
     }
 
     @Override
     public void parar() {
-        this.mp3dj.setFile(nomeArquivo);
+        mp3.parar();
+        mp3.retomar(10000);
     }
 
     @Override
-    public void avancar(int qtdeSegundosAvancar) {
-        this.mp3dj.forward(qtdeSegundosAvancar);
-        
+    public void avancar(int tempo) {
+        mp3.avancar(tempo);
     }
 
     @Override
-    public void retornar(int qtdeSegundosRetroceder) {
-        this.mp3dj.reward(qtdeSegundosRetroceder);
+    public void retornar(int tempo) {
+        mp3.retomar(tempo);
     }
 
     @Override
     public void liberar() {
-        this.mp3dj = null;
+        //Não possuí
     }
-    
+
+    @Override
+    public void reproduzirSimples(String nome) {
+        this.abrir(nome);
+        this.reproduzir();
+    }
+
+    @Override
+    public void pausarSimples() {
+        this.parar();
+    }
     
 }

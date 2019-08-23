@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package back;
+package trabalhounidade2;
 
-import problema1.AIFFSuperPlayer;
+import trabalhounidade2.FormatoAudio;
+import trabalhounidade2.AIFFSuperPlayer;
 
 /**
  *
  * @author TIEDT
  */
-public class AIFFAdapter implements FormatoAudio {
+public abstract class AIFFAdapter implements FormatoAudio {
 
     AIFFSuperPlayer aif;
 
@@ -24,14 +25,14 @@ public class AIFFAdapter implements FormatoAudio {
     @Override
     public void reproduzir() {
         if (aif != null) {
-            this.aif.play();
+            this.aif.reproduzir();
         }
     }
 
     @Override
     public void pausar() {
         if (aif != null) {
-            int tempo =  this.aif.pause();
+            int tempo =  this.aif.pausar();
             aif.setCursor(tempo);
         }
     }
@@ -39,7 +40,7 @@ public class AIFFAdapter implements FormatoAudio {
     @Override
     public void parar() {
         if (this.aif != null) {
-            this.aif.stop();
+            this.aif.parar();
             aif.setCursor(0);
         }
     }
@@ -61,7 +62,7 @@ public class AIFFAdapter implements FormatoAudio {
     @Override
     public void liberar() {
         if (this.aif != null) {
-          this.aif.release();
+          this.aif.liberar();
         }
     }
 

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package back;
+package trabalhounidade2;
 
+import trabalhounidade2.FormatoAudio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import problema1.WAVPlayer;
+import trabalhounidade2.WAVPlayer;
 
 /**
  *
@@ -26,37 +27,37 @@ public class WAVPlayerAdapter implements FormatoAudio {
     @Override
     public void reproduzir() {
         if (wav != null) {
-            wav.play();
+            wav.reproduzir();
         }
     }
 
     @Override
     public void pausar() {
         if (wav != null) {
-            wav.stop();
+            wav.parar();
         }
     }
 
     @Override
     public void parar() {
         if (wav != null) {
-            wav.stop();
+            wav.parar();
         }
     }
 
     @Override
     public void avancar(int qtdeSegundosAvancar) {
         if (wav != null) {
-            wav.forward(qtdeSegundosAvancar);
-            wav.play();
+            wav.avancar(qtdeSegundosAvancar);
+            wav.reproduzir();
         }
     }
 
     @Override
     public void retornar(int qtdeSegundosRetroceder) {
         if (wav != null) {
-            wav.reward(qtdeSegundosRetroceder);
-            wav.play();
+            wav.avancar(qtdeSegundosRetroceder);
+            wav.reproduzir();
         }
     }
 
@@ -67,5 +68,16 @@ public class WAVPlayerAdapter implements FormatoAudio {
         } catch (Throwable ex) {
             Logger.getLogger(WAVPlayerAdapter.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void reproduzirSimples(String nome) {
+        this.abrir(nome);
+        this.reproduzir();
+    }
+
+    @Override
+    public void pausarSimples() {
+        this.parar();
     }
 }
